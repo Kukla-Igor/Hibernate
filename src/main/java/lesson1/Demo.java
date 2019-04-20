@@ -6,15 +6,14 @@ public class Demo {
     public static void main(String[] args) {
         save();
 
+
     }
 
     static void save(){
         Session session = new HibernateUtils().createSessionFactory().openSession();
-
         session.getTransaction().begin();
-
         Product product = new Product();
-        product.setId(99);
+        product.setId(998);
         product.setName("Table");
         product.setDescription("grey & blue");
         product.setPrice(70);
