@@ -10,7 +10,7 @@ import org.hibernate.query.Query;
 
 public abstract class GeneralDAO<T extends IdEntity> {
     private static SessionFactory sessionFactory;
-    private Session session = createSessionFactory().openSession();
+    private Session session = null;
     private Transaction tr = null;
 
     abstract String getQuery();
@@ -42,7 +42,7 @@ public abstract class GeneralDAO<T extends IdEntity> {
             tr = session.getTransaction();
             tr.begin();
 
-            T t = getOblect(id);
+            T t = getObject(id, session);
 
             session.delete(t);
 
@@ -80,27 +80,28 @@ public abstract class GeneralDAO<T extends IdEntity> {
         return t;
     }
 
-    public T findById(Long id){
+    public T findById(Long id) {
         T t = null;
+
         try {
-            session = createSessionFactory().openSession();
+            Session session = createSessionFactory().openSession();
             tr = session.getTransaction();
             tr.begin();
 
-            t = getOblect(id);
+            t = getObject(id, session);
 
             tr.commit();
 
-        } catch (HibernateError e){
+        } catch (HibernateError e) {
             System.err.println(e.getMessage());
-        }finally {
-            if (session != null)
-                session.close();
+//        }finally {
+//            if (session != null)
+//                session.close();
         }
         return t;
     }
 
-    private  T getOblect(Long id){
+    private  T getObject(Long id, Session session){
         T t;
         Query query = session.createQuery(getQuery());
         query.setParameter("id", id);
