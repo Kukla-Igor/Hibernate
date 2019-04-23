@@ -13,7 +13,7 @@ public class Demo {
         Room room = new Room(5, 225, 1, 1, new Date(), hotel);
         //System.out.println(hotelDAO.save(hotel));
 
-        System.out.println(roomDAO.findById((long) 3));
+        System.out.println(roomDAO.findById((long) 33));
 
         //roomDAO.Delete((long) 11);
 

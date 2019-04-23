@@ -1,6 +1,5 @@
 package lesson3.DAO;
 
-import lesson1.Product;
 import lesson3.IdEntity;
 import org.hibernate.HibernateError;
 import org.hibernate.Session;
