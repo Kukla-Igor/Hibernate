@@ -15,7 +15,7 @@ public abstract class GeneralDAO<T extends IdEntity> {
 
     abstract String getQuery();
 
-    public  T Save(T t){
+    public  T save(T t){
         try {
             session = createSessionFactory().openSession();
             tr = session.getTransaction();
@@ -36,7 +36,7 @@ public abstract class GeneralDAO<T extends IdEntity> {
         return t;
     }
 
-    public void Delete(Long id){
+    public void delete(Long id){
         try {
             session = createSessionFactory().openSession();
             tr = session.getTransaction();

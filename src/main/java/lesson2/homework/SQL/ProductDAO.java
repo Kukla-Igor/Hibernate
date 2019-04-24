@@ -55,8 +55,6 @@ public class ProductDAO {
             } catch (HibernateError e){
                 System.err.println("Error");
                 System.err.println(e.getMessage());
-
-
             }finally {
                 if (session != null)
                     session.close();

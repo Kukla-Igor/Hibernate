@@ -9,15 +9,15 @@ public class Demo {
     public static void main(String[] args) {
         HotelDAO hotelDAO = new HotelDAO();
         RoomDAO roomDAO = new RoomDAO();
-        Hotel hotel = new Hotel( 5,"Fregat", "Ukraine2", "Kherson2", "Ushakova");
+        Hotel hotel = new Hotel( 3,"Fregat1111111", "Ukraine2", "Kherson2", "Ushakova");
         Room room = new Room(5, 225, 1, 1, new Date(), hotel);
-        //System.out.println(hotelDAO.save(hotel));
+        //System.out.println(roomDAO.save(room));
 
-        System.out.println(roomDAO.findById((long) 33));
+        //System.out.println(roomDAO.findById((long) 33));
 
-        //roomDAO.Delete((long) 11);
+        //hotelDAO.delete((long) 41);
 
-        //System.out.println(roomDAO.update(room));
+        System.out.println(hotelDAO.update(hotel));
 
     }
 }
