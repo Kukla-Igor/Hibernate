@@ -13,11 +13,11 @@ public class Demo {
         Room room = new Room(5, 225, 1, 1, new Date(), hotel);
         //System.out.println(roomDAO.save(room));
 
-        //System.out.println(roomDAO.findById((long) 33));
+        System.out.println(hotelDAO.findById((long) 3));
 
         //hotelDAO.delete((long) 41);
 
-        System.out.println(hotelDAO.update(hotel));
+        //System.out.println(hotelDAO.update(hotel));
 
     }
 }

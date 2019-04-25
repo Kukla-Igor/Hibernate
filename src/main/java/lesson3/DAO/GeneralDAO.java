@@ -1,6 +1,8 @@
 package lesson3.DAO;
 
+import lesson3.Hotel;
 import lesson3.IdEntity;
+import lesson3.Room;
 import org.hibernate.HibernateError;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,7 +15,9 @@ public abstract class GeneralDAO<T extends IdEntity> {
     private Session session = null;
     private Transaction tr = null;
 
+
     abstract String getQuery();
+    abstract Class aClass();
 
     public  T save(T t){
         try {
@@ -88,7 +92,10 @@ public abstract class GeneralDAO<T extends IdEntity> {
             tr = session.getTransaction();
             tr.begin();
 
-            t = getObject(id, session);
+
+            t = (T) session.get(aClass(), id);
+
+   //         t = getObject(id, session);
 
             tr.commit();
 
