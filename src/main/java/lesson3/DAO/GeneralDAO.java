@@ -1,22 +1,17 @@
 package lesson3.DAO;
 
-import lesson3.Hotel;
 import lesson3.IdEntity;
-import lesson3.Room;
 import org.hibernate.HibernateError;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
 public abstract class GeneralDAO<T extends IdEntity> {
     private static SessionFactory sessionFactory;
     private Session session = null;
     private Transaction tr = null;
 
-
-    abstract String getQuery();
     abstract Class aClass();
 
     public  T save(T t){
@@ -46,7 +41,9 @@ public abstract class GeneralDAO<T extends IdEntity> {
             tr = session.getTransaction();
             tr.begin();
 
-            T t = getObject(id, session);
+            T t;
+
+            t = (T) session.get(aClass(), id);
 
             session.delete(t);
 
@@ -101,21 +98,9 @@ public abstract class GeneralDAO<T extends IdEntity> {
 
         } catch (HibernateError e) {
             System.err.println(e.getMessage());
-//        }finally {
-//            if (session != null)
-//                session.close();
         }
         return t;
     }
-
-    private  T getObject(Long id, Session session){
-        T t;
-        Query query = session.createQuery(getQuery());
-        query.setParameter("id", id);
-
-        return t = (T) query.getSingleResult();
-    }
-
 
 
     private static SessionFactory createSessionFactory() {
