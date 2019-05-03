@@ -9,14 +9,14 @@ import org.hibernate.cfg.Configuration;
 
 public abstract class GeneralDAO<T extends IdEntity> {
     private static SessionFactory sessionFactory;
-    private Session session = null;
+
     private Transaction tr = null;
 
     abstract Class aClass();
 
     public  T save(T t){
-        try {
-            session = createSessionFactory().openSession();
+        try (Session session = createSessionFactory().openSession()) {
+
             tr = session.getTransaction();
             tr.begin();
 
@@ -28,16 +28,13 @@ public abstract class GeneralDAO<T extends IdEntity> {
         } catch (HibernateError e){
             System.err.println("Save is failed");
             System.err.println(e.getMessage());
-        }finally {
-            if (session != null)
-                session.close();
         }
         return t;
     }
 
     public void delete(Long id){
-        try {
-            session = createSessionFactory().openSession();
+        try (Session session = createSessionFactory().openSession())  {
+
             tr = session.getTransaction();
             tr.begin();
 
@@ -53,16 +50,11 @@ public abstract class GeneralDAO<T extends IdEntity> {
         } catch (HibernateError e){
             System.err.println("Delete is failed");
             System.err.println(e.getMessage());
-
-        }finally {
-            if (session != null)
-                session.close();
         }
     }
 
     public T update(T t){
-        try {
-            session = createSessionFactory().openSession();
+        try (Session session = createSessionFactory().openSession())  {
             tr = session.getTransaction();
             tr.begin();
 
@@ -74,9 +66,6 @@ public abstract class GeneralDAO<T extends IdEntity> {
         } catch (HibernateError e){
             System.err.println("Update is failed");
             System.err.println(e.getMessage());
-        }finally {
-            if (session != null)
-                session.close();
         }
         return t;
     }
@@ -84,16 +73,13 @@ public abstract class GeneralDAO<T extends IdEntity> {
     public T findById(Long id) {
         T t = null;
 
-        try {
+        try  {
             Session session = createSessionFactory().openSession();
             tr = session.getTransaction();
             tr.begin();
 
 
             t = (T) session.get(aClass(), id);
-
-   //         t = getObject(id, session);
-
             tr.commit();
 
         } catch (HibernateError e) {

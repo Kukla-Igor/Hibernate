@@ -8,7 +8,7 @@
         <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
         <property name="hibernate.connection.url">jdbc:oracle:thin:@gromecode-lessons.cbgpstxxjmkw.us-east-2.rds.amazonaws.com:1521:ORCL</property>
         <property name="hibernate.connection.username">main</property>
-        <property name="hibernate.connection.password">******</property>
+        <property name="hibernate.connection.password">170892Igor</property>
 
         <mapping class="lesson1.Product"></mapping>
         <mapping class="lesson3.Room"></mapping>
