@@ -10,8 +10,9 @@
         <property name="hibernate.connection.username">main</property>
         <property name="hibernate.connection.password">170892Igor</property>
 
-        <mapping class="lesson1.Product"></mapping>
-        <mapping class="lesson3.Room"></mapping>
-        <mapping class="lesson3.Hotel"></mapping>
+        <mapping class="lesson4.model.Room"></mapping>
+        <mapping class="lesson4.model.Hotel"></mapping>
+        <mapping class="lesson4.model.User"></mapping>
+        <mapping class="lesson4.model.Order"></mapping>
     </session-factory>
 </hibernate-configuration>
