@@ -12,7 +12,7 @@ public class OrderController {
         orderService.bookRoom(roomId, userId, dateFrom, dateTo);
     }
 
-//    public void cancelReservation(long roomId, long userId) throws Exception{
-//        orderService.cancelReservation(roomId, userId);
-//    }
+    public void cancelReservation(long roomId, long userId) throws Exception{
+        orderService.cancelReservation(roomId, userId);
+    }
 }

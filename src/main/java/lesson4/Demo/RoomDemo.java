@@ -23,6 +23,6 @@ public class RoomDemo {
 
         Room room = new Room(5, 20.5, true, false, new Date(), hotel);
         //System.out.println(roomController.findRooms(filter));
-        System.out.println(roomDAO.findById((long) 57));
+        System.out.println(roomDAO.save(room));
     }
 }

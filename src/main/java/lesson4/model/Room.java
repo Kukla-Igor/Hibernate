@@ -110,6 +110,35 @@ public class Room  extends IdEntity  {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Room room = (Room) o;
+
+        if (numberOfGuets != room.numberOfGuets) return false;
+        if (Double.compare(room.price, price) != 0) return false;
+        if (breakfastIncluded != room.breakfastIncluded) return false;
+        if (petsAllowed != room.petsAllowed) return false;
+        if (dateAvailableFrom != null ? !dateAvailableFrom.equals(room.dateAvailableFrom) : room.dateAvailableFrom != null)
+            return false;
+        return hotel != null ? hotel.equals(room.hotel) : room.hotel == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = numberOfGuets;
+        temp = Double.doubleToLongBits(price);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (breakfastIncluded ? 1 : 0);
+        result = 31 * result + (petsAllowed ? 1 : 0);
+        result = 31 * result + (hotel != null ? hotel.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Room{" +
                 "id=" + id +

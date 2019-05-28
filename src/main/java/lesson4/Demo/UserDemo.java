@@ -1,15 +1,18 @@
 package lesson4.Demo;
 
-import lesson4.DAO.UserDAO;
+import lesson4.Controller.UserController;
+import lesson4.model.User;
 
 
 public class UserDemo {
 
     public static void main(String[] args) {
 
-    UserDAO userDAO = new UserDAO();
+    UserController userController = new UserController();
 
 
-        System.out.println(userDAO.findById((long)1));
+        User user = new User("Test", "Password", "USA", "USER");
+
+        userController.registerUser(user);
     }
 }

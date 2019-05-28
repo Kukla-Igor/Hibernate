@@ -10,13 +10,13 @@ public class User  extends IdEntity {
     private  String userName;
     private  String password;
     private  String country;
-    private  UserType userType;
+    private  String userType;
     private List<Order> orders;
 
     public User() {
     }
 
-    public User(String userName, String password, String country, UserType userType) {
+    public User(String userName, String password, String country, String userType) {
         this.userName = userName;
         this.password = password;
         this.country = country;
@@ -47,7 +47,7 @@ public class User  extends IdEntity {
     }
 
     @Column(name = "USER_TYPE")
-    public UserType getUserType() {
+    public String getUserType() {
         return userType;
     }
 
@@ -72,7 +72,7 @@ public class User  extends IdEntity {
         this.country = country;
     }
 
-    public void setUserType(UserType userType) {
+    public void setUserType(String userType) {
         this.userType = userType;
     }
 

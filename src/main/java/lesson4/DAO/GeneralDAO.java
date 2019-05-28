@@ -78,7 +78,6 @@ public abstract class GeneralDAO<T extends IdEntity> {
             tr = session.getTransaction();
             tr.begin();
 
-            System.out.println(aClass());
             t = (T) session.get(aClass(), id);
 
             tr.commit();

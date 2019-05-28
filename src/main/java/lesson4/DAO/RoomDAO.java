@@ -14,8 +14,6 @@ import java.util.List;
 public class RoomDAO extends GeneralDAO {
 
 
-    GeneralDAO generalDAO;
-
     public List<Room> findRooms(Filter filter) throws UserNotFoundException {
         ArrayList<Room> roomList = new ArrayList<>();
         List<Hotel> hotelList = new ArrayList<>();
@@ -85,6 +83,8 @@ public class RoomDAO extends GeneralDAO {
             query.setParameter(1, newDate);
             query.setParameter(2, id);
 
+            query.executeUpdate();
+
             tr.commit();
 
         } catch (HibernateError e) {
@@ -93,9 +93,6 @@ public class RoomDAO extends GeneralDAO {
 
     }
 
-//    public Room findById(Long id) {
-//        return (Room) generalDAO.findById(id);
-//    }
 
     @Override
     Class aClass() {

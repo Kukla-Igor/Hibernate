@@ -11,8 +11,8 @@ public class OrderService {
     public void bookRoom(long roomId, long userId, Date dateFrom, Date dateTo) throws Exception{
         orderDAO.bookRoom(roomId,userId,dateFrom,dateTo);
     }
-//
-//    public void cancelReservation(long roomId, long userId) throws Exception{
-//        orderDAO.cancelReservation(roomId, userId);
-//    }
+
+    public void cancelReservation(long roomId, long userId) throws Exception{
+        orderDAO.cancelReservation(roomId, userId);
+    }
 }

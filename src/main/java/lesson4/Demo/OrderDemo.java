@@ -11,14 +11,16 @@ public class OrderDemo {
 
     public static void main(String[] args) throws Exception  {
 
-//        OrderController orderController = new OrderController();
-////
-////        orderController.bookRoom(57, 1, new Date(), new Date());
+        OrderController orderController = new OrderController();
 
-        OrderDAO orderDAO = new OrderDAO();
+       orderController.cancelReservation(55, 1);
 
+        //orderController.bookRoom(55, 1, new Date(), new Date());
 
-        System.out.println(orderDAO.findById((long)1));
+//        OrderDAO orderDAO = new OrderDAO();
+//
+//
+//        System.out.println(orderDAO.findById((long)1));
     }
 }
 
