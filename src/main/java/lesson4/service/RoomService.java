@@ -17,15 +17,15 @@ public class RoomService {
         return roomDAO.findRooms(filter);
     }
 
-//    public Room addRoom(Room room) throws Exception {
-//        if (room == null)
-//            throw new BadRequestException("You do not enter the name of the hotel");
-//        return roomDAO.addRoom(room);
-//    }
-//
-//    public void deleteRoom(Long roomId) throws Exception{
-//        if (roomId == null)
-//            throw new BadRequestException("You do not enter the name of the hotel");
-//        roomDAO.deleteRoom(roomId);
-//    }
+    public Room addRoom(Room room) throws Exception {
+        if (room == null)
+            throw new BadRequestException("You do not enter the name of the hotel");
+        return (Room) roomDAO.save(room);
+    }
+
+    public void deleteRoom(Long roomId) throws Exception{
+        if (roomId == null)
+            throw new BadRequestException("You do not enter the name of the hotel");
+        roomDAO.delete(roomId);
+    }
 }

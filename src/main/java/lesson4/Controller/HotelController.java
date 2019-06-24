@@ -14,12 +14,12 @@ public class HotelController {
     public Hotel findHotelByCity (String city) throws Exception {
         return hotelService.findHotelByCity(city);
     }
-//
-//    public Hotel addHotel(Hotel hotel) throws Exception {
-//        return hotelService.addHotel(hotel);
-//    }
-//
-//    public void deleteHotel(Long hotelId) throws Exception{
-//        hotelService.deleteHotel(hotelId);
-//    }
+
+    public Hotel addHotel(Hotel hotel) throws Exception {
+        return hotelService.addHotel(hotel);
+    }
+
+    public void deleteHotel(Long hotelId) throws Exception{
+        hotelService.deleteHotel(hotelId);
+    }
 }

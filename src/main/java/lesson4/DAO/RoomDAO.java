@@ -8,7 +8,6 @@ import org.hibernate.HibernateError;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class RoomDAO extends GeneralDAO {
@@ -72,27 +71,6 @@ public class RoomDAO extends GeneralDAO {
         }
         return rooms;
     }
-
-    public void updateDateRoom(Date newDate, long id){
-        try {
-            Session session = createSessionFactory().openSession();
-            tr = session.getTransaction();
-            tr.begin();
-
-            Query query = session.createNativeQuery("UPDATE ROOM SET DATE_AVAILABLE_FROM = ? where ID = ?");
-            query.setParameter(1, newDate);
-            query.setParameter(2, id);
-
-            query.executeUpdate();
-
-            tr.commit();
-
-        } catch (HibernateError e) {
-            System.err.println(e.getMessage());
-        }
-
-    }
-
 
     @Override
     Class aClass() {

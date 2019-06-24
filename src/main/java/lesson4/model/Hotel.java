@@ -13,7 +13,7 @@ public class Hotel  extends IdEntity {
     private String street;
     private List<Room> rooms;
 
-    public Hotel() {
+    public Hotel()  {
 
     }
 

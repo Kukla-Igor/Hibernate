@@ -20,16 +20,16 @@ public class HotelService {
             throw new BadRequestException("You do not enter the name of the hotel");
         return hotelDAO.findHotelByCity(city);
     }
-//
-//    public Hotel addHotel(Hotel hotel) throws Exception {
-//        if (hotel == null)
-//            throw new BadRequestException("You do not enter the name of the hotel");
-//        return hotelDAO.addHotel(hotel);
-//    }
-//
-//    public void deleteHotel(Long hotelId) throws Exception{
-//        if (hotelId == null)
-//            throw new BadRequestException("You do not enter the name of the hotel");
-//        hotelDAO.deleteHotel(hotelId);
-//    }
+
+    public Hotel addHotel(Hotel hotel) throws Exception {
+        if (hotel == null)
+            throw new BadRequestException("You do not enter the name of the hotel");
+        return (Hotel) hotelDAO.save(hotel);
+    }
+
+    public void deleteHotel(Long hotelId) throws Exception{
+        if (hotelId == null)
+            throw new BadRequestException("You do not enter the name of the hotel");
+        hotelDAO.delete(hotelId);
+    }
 }

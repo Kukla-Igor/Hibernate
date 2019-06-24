@@ -11,12 +11,12 @@ public class HotelDemo {
         HotelController hotelController = new HotelController();
 
 //        System.out.println(hotelController.findHotelByName(""));
-        System.out.println(hotelController.findHotelByCity("Kherson"));
+        //System.out.println(hotelController.findHotelByCity("Kherson"));
 
         Hotel hotel = new Hotel("Sharm", "Egypt", "Sinay", "Street");
 
         HotelDAO hotelDAO = new HotelDAO();
 
-        hotelDAO.save(hotel);
+
     }
 }

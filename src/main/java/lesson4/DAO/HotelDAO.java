@@ -60,10 +60,6 @@ public class HotelDAO extends GeneralDAO {
         return hotel;
     }
 
-    public Hotel findById(Long id) {
-        return (Hotel) generalDAO.findById(id);
-    }
-
     @Override
     Class aClass() {
         return Hotel.class;

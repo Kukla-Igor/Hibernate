@@ -13,9 +13,9 @@ public class OrderDemo {
 
         OrderController orderController = new OrderController();
 
-       orderController.cancelReservation(55, 1);
+       //orderController.cancelReservation(55, 1);
 
-        //orderController.bookRoom(55, 1, new Date(), new Date());
+        orderController.bookRoom(55, 1, new Date(), new Date());
 
 //        OrderDAO orderDAO = new OrderDAO();
 //

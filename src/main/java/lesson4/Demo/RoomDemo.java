@@ -15,7 +15,7 @@ public class RoomDemo {
     public static void main(String[] args) throws Exception {
 
         RoomController roomController = new RoomController();
-        RoomDAO roomDAO = new RoomDAO();
+        //RoomDAO roomDAO = new RoomDAO();
 
         Filter filter = new Filter(5, 20.5, true, false, null, null, null, null);
 
@@ -23,6 +23,7 @@ public class RoomDemo {
 
         Room room = new Room(5, 20.5, true, false, new Date(), hotel);
         //System.out.println(roomController.findRooms(filter));
-        System.out.println(roomDAO.save(room));
+        //System.out.println(roomDAO.save(room));
+        roomController.deleteRoom((long) 57);
     }
 }
