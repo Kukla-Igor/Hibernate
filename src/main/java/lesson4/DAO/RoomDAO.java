@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RoomDAO extends GeneralDAO {
-
+    public RoomDAO(Class type) {
+        super(type);
+    }
 
     public List<Room> findRooms(Filter filter) throws UserNotFoundException {
         ArrayList<Room> roomList = new ArrayList<>();

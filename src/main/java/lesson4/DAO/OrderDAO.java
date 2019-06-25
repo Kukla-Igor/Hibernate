@@ -14,13 +14,19 @@ import org.hibernate.query.Query;
 import java.util.Date;
 
 public class OrderDAO extends GeneralDAO {
-    UserDAO userDAO = new UserDAO();
-    RoomDAO roomDAO = new RoomDAO();
+    public OrderDAO(Class type) {
+        super(type);
+    }
+
+    UserDAO userDAO = new UserDAO(User.class);
+    RoomDAO roomDAO = new RoomDAO(Room.class);
+
+
 
     public void bookRoom(long roomId, long userId, Date dateFrom, Date dateTo) throws BadRequestException, UserNotFoundException, InternalServerException {
 
-        Room room = (Room) roomDAO.findById(roomId, Room.class);
-        User user = (User) userDAO.findById(userId, User.class);
+        Room room = roomDAO.findById(roomId, Room.class);
+        User user = userDAO.findById(userId, User.class);
 
         if (room.getDateAvailableFrom().getTime() > dateFrom.getTime())
             throw new BadRequestException("Sorry, the room with id " + roomId + " is busy");

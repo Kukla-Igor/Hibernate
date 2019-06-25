@@ -10,6 +10,11 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public abstract class GeneralDAO<T extends IdEntity> {
+
+    public GeneralDAO(Class<T> type) {
+        this.type = type;
+    }
+
     private static SessionFactory sessionFactory;
 
     abstract Class aClass();

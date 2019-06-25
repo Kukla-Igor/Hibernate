@@ -6,6 +6,10 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 public class UserDAO extends GeneralDAO {
+    public UserDAO(Class type) {
+        super(type);
+    }
+
     public boolean check(User user){
         try (Session session = createSessionFactory().openSession()) {
 

@@ -10,8 +10,9 @@ import javax.persistence.NoResultException;
 
 
 public class HotelDAO extends GeneralDAO {
-
-    GeneralDAO generalDAO;
+    public HotelDAO(Class type) {
+        super(type);
+    }
 
     public Hotel findHotelByName(String name) throws UserNotFoundException {
 
