@@ -72,16 +72,16 @@ public abstract class GeneralDAO<T extends IdEntity> {
     }
 
     public T findById(Long id, Class cl) throws UserNotFoundException, InternalServerException {
+        type = cl;
         T t;
 
-        type = cl;
         try {
             Session session = createSessionFactory().openSession();
             tr = session.getTransaction();
             tr.begin();
 
 
-            t = (T) session.get(aClass(), id);
+            t = session.get(type, id);
 
             tr.commit();
 
@@ -90,7 +90,7 @@ public abstract class GeneralDAO<T extends IdEntity> {
         }
         if (t == null)
             throw new UserNotFoundException("Object with id " + id + " not found");
-        return  t;
+        return t;
     }
 
 

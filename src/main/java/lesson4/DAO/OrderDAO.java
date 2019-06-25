@@ -47,7 +47,7 @@ public class OrderDAO extends GeneralDAO {
 
     public void cancelReservation (long roomId, long userId) throws Exception{
 
-        User user = (User) userDAO.findById(userId);
+        User user = (User) userDAO.findById(userId, User.class);
 
 
         if (user.getOrders().isEmpty()) {
